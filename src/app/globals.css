@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Pretendard(국문 UI) + IBM Plex Mono(계기판 수치용) */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+
+:root {
+  --font-sans: "Pretendard";
+  --font-mono: "IBM Plex Mono";
+
+  /* Light: 조명이 밝은 사무실용 톤 */
+  --bg: 210 17% 96%;
+  --surface: 0 0% 100%;
+  --surface-raised: 0 0% 100%;
+  --border: 214 15% 88%;
+  --fg: 220 25% 12%;
+  --fg-muted: 220 9% 42%;
+  --accent: 199 55% 40%;
+  --accent-fg: 0 0% 100%;
+  --signal-critical: 356 72% 55%;
+  --signal-warning: 38 80% 50%;
+  --signal-good: 152 45% 40%;
+}
+
+.dark {
+  /* Dark: 현장 모니터/야간 근무용 그래파이트 톤 */
+  --bg: 220 16% 9%;
+  --surface: 220 15% 13%;
+  --surface-raised: 220 14% 16%;
+  --border: 220 13% 22%;
+  --fg: 210 20% 92%;
+  --fg-muted: 216 10% 62%;
+  --accent: 199 65% 58%;
+  --accent-fg: 220 20% 10%;
+  --signal-critical: 356 78% 62%;
+  --signal-warning: 38 85% 58%;
+  --signal-good: 152 42% 50%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--bg));
+  color: hsl(var(--fg));
+  font-family: var(--font-sans), sans-serif;
+  font-feature-settings: "tnum" 1;
+}
+
+/* 계기판 수치(KPI 숫자, 테이블 수량/시간) 전용 유틸 */
+.font-gauge {
+  font-family: var(--font-mono), monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background-color: hsl(var(--accent) / 0.25);
+}
